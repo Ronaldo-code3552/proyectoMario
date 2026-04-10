@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "172.22.16.1",
+            "port": 5433,
+            "driver": "PostgreSQL",
+            "name": "MarioProyect",
+            "database": "MarioProyecto",
+            "username": "postgres",
+            "password": "1234"
+        }
+    ],
+    "postman.settings.dotenv-detection-notification-visibility": false
+}

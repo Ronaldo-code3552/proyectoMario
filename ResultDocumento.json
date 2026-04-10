@@ -1,0 +1,361 @@
+
+      "LISTA_ACCIONISTAS": [
+        {
+          "sujeto": {
+            "id": 17,
+            "scoreValor": "110",
+            "tipoSujeto": "NATURAL",
+            "nivelRiesgo": "BAJO",
+            "deudaTotalBanco": "BCP",
+            "deudaTotalMonto": "1500",
+            "deudaTotalTexto": "SIN OBSERVACIONES",
+            "comportamiento13m": "ESTABLE",
+            "deudaTotalCredito": "800",
+            "cantidadRiesgosNum": "1",
+            "descripcionOtrasDeudas": "NINGUNA",
+            "riesgosComportamientoPago": "REGULAR",
+            "riesgosEstadoCalificacion": "NORMAL"
+          },
+          "empresa": "",
+          "persona": {
+            "sujetoId": 17,
+            "rucPersonal": "10111111111",
+            "nombreJsonRaw": "SIDERAL ANDRES LUJAN CARRION",
+            "tipoDocumento": "DNI",
+            "nombreCompleto": "SIDERAL ANDRES LUJAN CARRION",
+            "numeroDocumento": "87654321",
+            "tipoDocumentoRaw": "DNI",
+            "deudaPublicaSunat": "Si presenta deuda en cobranza",
+            "estadoContribuyente": "ACTIVO",
+            "gerenteNombreJsonRaw": "SIDERAL ANDRES LUJAN CARRION",
+            "condicionContribuyente": "HABIDO",
+            "domicilioFiscalPersonal": "LOS OLIVOS",
+            "gerenteNumeroDocumentoRaw": "87654321",
+            "omisionesTributariasSunat": "No presenta omisiones"
+          },
+          "contexto": "",
+          "ordenLista": "2",
+          "relacionId": "13",
+          "observacion": "Accionista natural",
+          "tipoRelacion": "ACCIONISTA",
+          "LISTA_SUNAT_DEUDA": [],
+          "reportesExpediente": [
+            {
+              "id": 27,
+              "organo": "INDECOPI",
+              "partes": "DENUNCIANTE A",
+              "estatus": "EN TRAMITE",
+              "expediente": "EXP-2026-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 30,
+              "organo": "SALA CONCURSAL",
+              "partes": "DENUNCIANTE D",
+              "estatus": "PENDIENTE",
+              "expediente": "EXP-2026-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 33,
+              "organo": "COMISION",
+              "partes": "DENUNCIANTE G",
+              "estatus": "CERRADO",
+              "expediente": "EXP-2026-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 37,
+              "organo": "1ER JUZGADO CIVIL",
+              "partes": "DEMANDANTE J",
+              "estatus": "ACTIVO",
+              "expediente": "EXP-CIVIL-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 40,
+              "organo": "JUZGADO FAMILIAR",
+              "partes": "DEMANDANTE M",
+              "estatus": "ACTIVO",
+              "expediente": "EXP-FAM-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 43,
+              "organo": "JUZGADO LABORAL",
+              "partes": "DEMANDANTE O",
+              "estatus": "EN TRAMITE",
+              "expediente": "EXP-LAB-001",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            }
+          ],
+          "reportesListaSimple": [
+            {
+              "id": 18,
+              "cantidad": "2",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "razonSocial": "EMPRESA OBSERVADA A",
+              "tipoReporte": "PROTECCION"
+            },
+            {
+              "id": 21,
+              "cantidad": "1",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "sala_proteccion",
+                "fechas": "2025-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "EMPRESA PRETECTORA A",
+              "tipoReporte": "SALA_PROTECCION"
+            },
+            {
+              "id": 24,
+              "cantidad": "5",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "ranking_constructoras",
+                "fechas": "2024-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "CONSTRUCTORA NombreA S.A.C.",
+              "tipoReporte": "RANKING_CONSTRUCTORAS"
+            },
+            {
+              "id": 27,
+              "cantidad": "3",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "comision_signos",
+                "fechas": "2023-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "MARCA PERRITO",
+              "tipoReporte": "COMISION_SIGNOS"
+            },
+            {
+              "id": 30,
+              "cantidad": "1",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "comision_inventos",
+                "fechas": "2022-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "PATENTE EMPRESA INICIAL A ",
+              "tipoReporte": "COMISION_INVENTOS"
+            }
+          ],
+          "ACCIONISTAS_INTERNOS": [],
+          "LISTA_SUNAT_OMISIONES": [],
+          "reportesMinisterioVivienda": [
+            {
+              "id": 5,
+              "organo": "MINISTERIO DE VIVIENDA",
+              "sancion": "OBSERVACION ADMINISTRATIVA A",
+              "ordenLista": 1,
+              "payloadItem": null
+            }
+          ],
+          "lista_representantes_legales": [],
+          "TIPO": "NATURAL",
+          "NOMBRE_COMPLETO": "SIDERAL ANDRES LUJAN CARRION",
+          "NOMBRE": "SIDERAL ANDRES LUJAN CARRION",
+          "RAZON": "SIDERAL ANDRES LUJAN CARRION",
+          "RAZON_SOCIAL": "SIDERAL ANDRES LUJAN CARRION",
+          "documento": "DNI",
+          "documento_numero": "87654321"
+        },
+        {
+          "sujeto": {
+            "id": 19,
+            "scoreValor": "330",
+            "tipoSujeto": "NATURAL",
+            "nivelRiesgo": "MEDIO",
+            "deudaTotalBanco": "BCP",
+            "deudaTotalMonto": "1500",
+            "deudaTotalTexto": "SIN OBSERVACIONES",
+            "comportamiento13m": "MASO MENITOS",
+            "deudaTotalCredito": "800",
+            "cantidadRiesgosNum": "1",
+            "descripcionOtrasDeudas": "NINGUNA",
+            "riesgosComportamientoPago": "REGULAR",
+            "riesgosEstadoCalificacion": "NORMAL"
+          },
+          "empresa": "",
+          "persona": {
+            "sujetoId": 19,
+            "rucPersonal": "10888888888",
+            "nombreJsonRaw": "Gabriel Garcia Marquez",
+            "tipoDocumento": "DNI",
+            "nombreCompleto": "Gabriel Garcia Marquez",
+            "numeroDocumento": "88888888",
+            "tipoDocumentoRaw": "DNI",
+            "deudaPublicaSunat": "Si presenta deuda en cobranza",
+            "estadoContribuyente": "ACTIVO",
+            "gerenteNombreJsonRaw": "Gabriel Garcia Marquez",
+            "condicionContribuyente": "HABIDO",
+            "domicilioFiscalPersonal": "EL DIABLO",
+            "gerenteNumeroDocumentoRaw": "88888888",
+            "omisionesTributariasSunat": "No presenta omisiones"
+          },
+          "contexto": "",
+          "ordenLista": "3",
+          "relacionId": "14",
+          "observacion": "Accionista natural",
+          "tipoRelacion": "ACCIONISTA",
+          "LISTA_SUNAT_DEUDA": [],
+          "reportesExpediente": [
+            {
+              "id": 29,
+              "organo": "INDECOPI",
+              "partes": "DENUNCIANTE B",
+              "estatus": "EN TRAMITE",
+              "expediente": "EXP-2026-002",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 32,
+              "organo": "SALA CONCURSAL",
+              "partes": "DENUNCIANTE F",
+              "estatus": "PENDIENTE",
+              "expediente": "EXP-2026-003",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 36,
+              "organo": "COMISION",
+              "partes": "DENUNCIANTE I",
+              "estatus": "CERRADO",
+              "expediente": "EXP-2026-003",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 39,
+              "organo": "1ER JUZGADO CIVIL",
+              "partes": "DEMANDANTE L",
+              "estatus": "ACTIVO",
+              "expediente": "EXP-CIVIL-003",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 42,
+              "organo": "JUZGADO FAMILIAR",
+              "partes": "DEMANDANTE ENHE",
+              "estatus": "ACTIVO",
+              "expediente": "EXP-FAM-003",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            },
+            {
+              "id": 45,
+              "organo": "JUZGADO LABORAL",
+              "partes": "DEMANDANTE Q",
+              "estatus": "EN TRAMITE",
+              "expediente": "EXP-LAB-003",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "tipoReporte": "COMISION_REPRESION"
+            }
+          ],
+          "reportesListaSimple": [
+            {
+              "id": 20,
+              "cantidad": "2",
+              "ordenLista": 1,
+              "payloadItem": null,
+              "razonSocial": "EMPRESA OBSERVADA C",
+              "tipoReporte": "PROTECCION"
+            },
+            {
+              "id": 23,
+              "cantidad": "1",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "sala_proteccion",
+                "fechas": "2025-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "EMPRESA PRETECTORA C3",
+              "tipoReporte": "SALA_PROTECCION"
+            },
+            {
+              "id": 26,
+              "cantidad": "5",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "ranking_constructoras",
+                "fechas": "2024-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "CONSTRUCTORA NombreX S.A.C.",
+              "tipoReporte": "RANKING_CONSTRUCTORAS"
+            },
+            {
+              "id": 29,
+              "cantidad": "3",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "comision_signos",
+                "fechas": "2023-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "MARCA RATITA",
+              "tipoReporte": "COMISION_SIGNOS"
+            },
+            {
+              "id": 32,
+              "cantidad": "1",
+              "ordenLista": 1,
+              "payloadItem": {
+                "tipo": "comision_inventos",
+                "fechas": "2022-2026",
+                "fuente": "frontend"
+              },
+              "razonSocial": "PATENTE EMPRESA INICIAL C",
+              "tipoReporte": "COMISION_INVENTOS"
+            }
+          ],
+          "ACCIONISTAS_INTERNOS": [],
+          "LISTA_SUNAT_OMISIONES": [],
+          "reportesMinisterioVivienda": [
+            {
+              "id": 7,
+              "organo": "MINISTERIO DE VIVIENDA",
+              "sancion": "OBSERVACION ADMINISTRATIVA C",
+              "ordenLista": 1,
+              "payloadItem": null
+            }
+          ],
+          "lista_representantes_legales": [],
+          "TIPO": "NATURAL",
+          "NOMBRE_COMPLETO": "Gabriel Garcia Marquez",
+          "NOMBRE": "Gabriel Garcia Marquez",
+          "RAZON": "Gabriel Garcia Marquez",
+          "RAZON_SOCIAL": "Gabriel Garcia Marquez",
+          "documento": "DNI",
+          "documento_numero": "88888888"
+        }
+      ],

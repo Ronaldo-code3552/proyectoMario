@@ -1,0 +1,637 @@
+{
+  "empresa": {
+    "FECHA_1": "STRING",
+    "TEXTO_PROYECTOS_NATURAL": "STRING",
+    "NOMBRE_EMPRESA": "STRING",
+    "RAZON_SOCIAL": "STRING",
+    "RUC_EMPRESA": "STRING",
+    
+    "PARTIDA_PERSONAS_JURIDICAS": "STRING",
+    "PARTIDA_PERSONAS_JURIDICAS_DIRECCION": "STRING",
+    "DOMICILIO_FISCAL": "STRING",
+    "FECHA_CONSTITUCION": "STRING",
+    "OBJETO_SOCIAL_CODIGO": "STRING",
+    "OBJETO_SOCIAL": "STRING",
+    "SUMA_NUMERO": "STRING",
+    "SUMA_NUMERO_LETRA": "STRING",
+    "VALOR_NOMINAL": "STRING",
+    "VALOR_NOMINAL_NUMERO": "STRING",
+    
+    "SUNAT_ESTADO_EMPRESA": "STRING",
+    "SUNAT_CONDICION_EMPRESA": "STRING",
+    "SUNAT_DEUDA_COACTIVA": "STRING",
+    "monto_total": "STRING",
+    "LISTA_SUNAT_DEUDA": [
+      {
+        "monto": "STRING",
+        "periodo": "STRING",
+        "fecha": "STRING",
+        "entidad": "STRING"
+      }
+    ],
+    "SUNAT_OMISIONES": "STRING",
+    "monto": "STRING",
+    "LISTA_SUNAT_OMISIONES": [
+      {
+        "monto": "STRING",
+        "periodo": "STRING",
+        "fecha": "STRING",
+        "entidad": "STRING"
+      }
+    ],
+    
+    "SUNAT_TRABAJADORES_MES_FECHA": "STRING",
+    "SUNAT_TRABAJADORES_ANIO_FECHA": "STRING",
+    "SUNAT_TRABAJADORES": "STRING",
+    "SUNAT_PRESTADORES": "STRING",
+    "REPRESENTANTES_LEGALES_RESUMEN": "STRING",
+    "lista_representantes_legales": [
+      {
+        "PUESTO_REPRESENTANTE_LEGAL": "STRING",
+        "FECHA_DESDE_REPRESENTANTE_LEGAL": "STRING",
+        "NOMBRE_REPRESENTANTE_LEGAL": "STRING",
+        "DOCUMENTO_REPRESENTANTE_LEGAL": "STRING",
+        "DOCUMENTO_NUMERO_REPRESENTANTE_LEGAL": "STRING"
+      }
+    ],
+    
+    "INFO_ESTABLECIMIENTOS_ANEXOS_SUNAT": true,
+    "CANTIDAD_ESTABLECIMIENTOS": "STRING",
+    "NOMBRES_ESTABLECIMIENTOS": "STRING",
+    
+    "capital_monto": "STRING",
+    "capital_monto_letras": "STRING",
+    "capital_num_acciones": "STRING",
+    "capital_valor_nominal": "STRING",
+    "capital_valor_nominal_letras": "STRING",
+    
+    "score_valor": "STRING",
+    "nivel_riesgo": "STRING",
+    "EMPRESAS_RIESGO_NUM": "STRING",
+    "RIESGOS_ESTADO_CALIFICACION": "STRING",
+    "RIESGOS_COMPORTAMIENTO_PAGO": "STRING",
+    "deuda_total_texto": "STRING",
+    "DESCRIPCION_OTRAS_DEUDAS": "STRING",
+    "comportamiento_13m": "STRING",
+    
+    "reporte_comision_represion_denuncias": "STRING",
+    "lista_reporte_comision_represion": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "denunciantes": "STRING",
+        "estatus": "STRING"
+      }
+    ],
+    "reporte_sala_defensa_denuncias": "STRING",
+    "lista_reporte_sala_defensa": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "denunciantes": "STRING",
+        "estatus": "STRING"
+      }
+    ],
+    "reporte_sala_concursal_denuncias": "STRING",
+    "lista_reporte_sala_concursal": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "denunciantes": "STRING",
+        "estatus": "STRING"
+      }
+    ],
+    "reporte_comision_denuncias": "STRING",
+    "lista_reporte_comision": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "denunciantes": "STRING",
+        "estatus": "STRING"
+      }
+    ],
+    
+    "info_reporte_reclamos": true,
+    "reporte_infrecciones_reclamos": "STRING",
+    "info_reporte_infracciones": true,
+    "reporte_infracciones": "STRING",
+    
+    "REPORTE_RANKING_CONSTRUCTORAS_FECHAS": "STRING",
+    "lista_reporte_ranking": [
+      {
+        "razon_social": "STRING",
+        "cantidad": "STRING"
+      }
+    ],
+    "REPORTE_PROTECCION_FECHAS": "STRING",
+    "lista_reporte_proteccion": [
+      {
+        "razon_social": "STRING",
+        "cantidad": "STRING"
+      }
+    ],
+    "REPORTE_SALA_PROTECCION_FECHAS": "STRING",
+    "lista_reporte_sala_proteccion": [
+      {
+        "razon_social": "STRING",
+        "cantidad": "STRING"
+      }
+    ],
+    "REPORTE_COMISION_SIGNOS_FECHAS": "STRING",
+    "lista_reporte_comision_signos": [
+      {
+        "razon_social": "STRING",
+        "cantidad": "STRING"
+      }
+    ],
+    "REPORTE_COMISION_INVENTOS_FECHAS": "STRING",
+    "lista_reporte_comision_inventos": [
+      {
+        "razon_social": "STRING",
+        "cantidad": "STRING"
+      }
+    ],
+    
+    "REPORTE_MINISTERIO_VIVIENDA_SI_O_NO": "STRING",
+    "REPORTE_MINISTERIO_VIVIENDA_CANTIDAD": "STRING",
+    "lista_ministerio_vivienda": [
+      {
+        "organo": "STRING",
+        "sancion": "STRING"
+      }
+    ],
+    
+    "REPORTE_JUZGADOS_CIVILES_SI_O_NO": "STRING",
+    "REPORTE_JUZGADOS_CIVILES_CANTIDAD": "STRING",
+    "lista_reporte_juzgado_civil": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "demandantes": "STRING",
+        "status": "STRING"
+      }
+    ],
+    "REPORTE_JUZGADOS_LABORAL_SI_O_NO": "STRING",
+    "REPORTE_JUZGADOS_LABORAL_CANTIDAD": "STRING",
+    "lista_reporte_juzgado_laboral": [
+      {
+        "expediente": "STRING",
+        "organo": "STRING",
+        "demandantes": "STRING",
+        "status": "STRING"
+      }
+    ],
+    
+    "gerente_general": {
+      "GERENTE_GENERAL_NOMBRE": "STRING",
+      "GERENTE_GENERAL_TIPO_DOC": "STRING",
+      "GERENTE_GENERAL_NUM_DOC": "STRING",
+      "RUC_GERENTE": "STRING",
+      "DOMINIO_FISCAL_GERENTE": "STRING",
+      "ESTADO_CONTRIBUYENTE": "STRING",
+      "CONDICION_CONTRIBUYENTE": "STRING",
+      "DEUDA_PUBLICA_SUNAT": "STRING",
+      "OMISIONES_TRIBUTARIAS_SUNAT": "STRING",
+      
+      "score_valor_gerente": "STRING",
+      "nivel_riesgo_gerente": "STRING",
+      "PERSONAS_RIESGO_NUM": "STRING",
+      "RIESGOS_ESTADO_CALIFICACION": "STRING",
+      "RIESGOS_COMPORTAMIENTO_PAGO": "STRING",
+      "deuda_total_monto": "STRING",
+      "deuda_total_credito": "STRING",
+      "deuda_total_banco": "STRING",
+      "DESCRIPCION_OTRAS_DEUDAS": "STRING",
+      "comportamiento_13m": "STRING",
+      
+      "reporte_comision_represion_denuncias": "STRING",
+      "lista_reporte_comision_represion": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "denunciantes": "STRING",
+          "estatus": "STRING"
+        }
+      ],
+      "reporte_sala_concursal_denuncias": "STRING",
+      "lista_reporte_sala_concursal": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "denunciantes": "STRING",
+          "estatus": "STRING"
+        }
+      ],
+      "reporte_comision_denuncias": "STRING",
+      "lista_reporte_comision": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "denunciantes": "STRING",
+          "estatus": "STRING"
+        }
+      ],
+      
+      "REPORTE_PROTECCION_FECHAS": "STRING",
+      "lista_reporte_proteccion": [
+        {
+          "razon_social": "STRING",
+          "cantidad": "STRING"
+        }
+      ],
+      
+      "REPORTE_JUZGADOS_CIVILES_CANTIDAD": "STRING",
+      "lista_reporte_juzgado_civil": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "demandantes": "STRING",
+          "status": "STRING"
+        }
+      ],
+      "REPORTE_JUZGADOS_FAMILIARES_CANTIDAD": "STRING",
+      "lista_reporte_juzgado_familiar": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "demandantes": "STRING",
+          "status": "STRING"
+        }
+      ],
+      "REPORTE_JUZGADOS_LABORAL_CANTIDAD": "STRING",
+      "lista_reporte_juzgado_laboral": [
+        {
+          "expediente": "STRING",
+          "organo": "STRING",
+          "demandantes": "STRING",
+          "status": "STRING"
+        }
+      ]
+    },
+    
+    "LISTA_ACCIONISTAS": [
+      {
+        "TIPO": "JURIDICA",
+        "NOMBRE": "STRING",
+        "documento": "STRING",
+        "documento_numero": "STRING",
+        
+        "RAZON_SOCIAL": "STRING",
+        "RUC_EMPRESA": "STRING",
+        "PARTIDA_PERSONAS_JURIDICAS": "STRING",
+        "PARTIDA_PERSONAS_JURIDICAS_DIRECCION": "STRING",
+        "DOMICILIO_FISCAL": "STRING",
+        "FECHA_CONSTITUCION": "STRING",
+        "OBJETO_SOCIAL_CODIGO": "STRING",
+        "OBJETO_SOCIAL": "STRING",
+        "score_valor": "STRING",
+        "nivel_riesgo": "STRING",
+        "EMPRESAS_RIESGO_NUM": "STRING",
+        "RIESGOS_ESTADO_CALIFICACION": "STRING",
+        "RIESGOS_COMPORTAMIENTO_PAGO": "STRING",
+        "deuda_total_monto": "STRING",
+        "deuda_total_credito": "STRING",
+        "deuda_total_banco": "STRING",
+        "DESCRIPCION_OTRAS_DEUDAS": "STRING",
+        "comportamiento_13m": "STRING",
+        
+        "SUNAT_ESTADO_EMPRESA": "STRING",
+        "SUNAT_CONDICION_EMPRESA": "STRING",
+        "SUNAT_DEUDA_COACTIVA": "STRING",
+        "monto_total": "STRING",
+        "LISTA_SUNAT_DEUDA": [
+          {
+            "monto": "STRING",
+            "periodo": "STRING",
+            "fecha": "STRING",
+            "entidad": "STRING"
+          }
+        ],
+        "SUNAT_OMISIONES": "STRING",
+        "monto": "STRING",
+        "LISTA_SUNAT_OMISIONES": [
+          {
+            "monto": "STRING",
+            "periodo": "STRING",
+            "fecha": "STRING",
+            "entidad": "STRING"
+          }
+        ],
+        
+        "INFO_ESTABLECIMIENTOS_ANEXOS_SUNAT": true,
+        "CANTIDAD_ESTABLECIMIENTOS": "STRING",
+        "NOMBRES_ESTABLECIMIENTOS": "STRING",
+        
+        "SUNAT_TRABAJADORES_MES_FECHA": "STRING",
+        "SUNAT_TRABAJADORES_ANIO_FECHA": "STRING",
+        "SUNAT_TRABAJADORES": "STRING",
+        "SUNAT_PRESTADORES": "STRING",
+        "REPRESENTANTES_LEGALES_RESUMEN": "STRING",
+        "lista_representantes_legales": [
+          {
+            "PUESTO_REPRESENTANTE_LEGAL": "STRING",
+            "FECHA_DESDE_REPRESENTANTE_LEGAL": "STRING",
+            "NOMBRE_REPRESENTANTE_LEGAL": "STRING",
+            "DOCUMENTO_REPRESENTANTE_LEGAL": "STRING",
+            "DOCUMENTO_NUMERO_REPRESENTANTE_LEGAL": "STRING"
+          }
+        ],
+        
+        "SUMA_NUMERO": "STRING",
+        "SUMA_NUMERO_LETRA": "STRING",
+        "VALOR_NOMINAL": "STRING",
+        "VALOR_NOMINAL_NUMERO": "STRING",
+        
+        "reporte_comision_represion_denuncias": "STRING",
+        "lista_reporte_comision_represion": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        "reporte_sala_defensa_denuncias": "STRING",
+        "lista_reporte_sala_defensa": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        "reporte_sala_concursal_denuncias": "STRING",
+        "lista_reporte_sala_concursal": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        "reporte_comision_denuncias": "STRING",
+        "lista_reporte_comision": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        
+        "info_reporte_reclamos": true,
+        "reporte_infrecciones_reclamos": "STRING",
+        "info_reporte_infracciones": true,
+        "reporte_infracciones": "STRING",
+        
+        "REPORTE_RANKING_CONSTRUCTORAS_FECHAS": "STRING",
+        "lista_reporte_ranking": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        "REPORTE_PROTECCION_FECHAS": "STRING",
+        "lista_reporte_proteccion": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        "REPORTE_SALA_PROTECCION_FECHAS": "STRING",
+        "lista_reporte_sala_proteccion": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        "REPORTE_COMISION_SIGNOS_FECHAS": "STRING",
+        "lista_reporte_comision_signos": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        "REPORTE_COMISION_INVENTOS_FECHAS": "STRING",
+        "lista_reporte_comision_inventos": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        
+        "REPORTE_MINISTERIO_VIVIENDA_SI_O_NO": "STRING",
+        "REPORTE_MINISTERIO_VIVIENDA_CANTIDAD": "STRING",
+        "lista_ministerio_vivienda": [
+          {
+            "organo": "STRING",
+            "sancion": "STRING"
+          }
+        ],
+        
+        "REPORTE_JUZGADOS_CIVILES_SI_O_NO": "STRING",
+        "REPORTE_JUZGADOS_CIVILES_CANTIDAD": "STRING",
+        "lista_reporte_juzgado_civil": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "demandantes": "STRING",
+            "status": "STRING"
+          }
+        ],
+        "REPORTE_JUZGADOS_LABORAL_SI_O_NO": "STRING",
+        "REPORTE_JUZGADOS_LABORAL_CANTIDAD": "STRING",
+        "lista_reporte_juzgado_laboral": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "demandantes": "STRING",
+            "status": "STRING"
+          }
+        ],
+        
+        "ACCIONISTAS_INTERNOS": [
+          {
+            "NOMBRE": "STRING",
+            "documento": "STRING",
+            "documento_numero": "STRING",
+            
+            "GERENTE_GENERAL_NOMBRE": "STRING",
+            "GERENTE_GENERAL_NUM_DOC": "STRING",
+            "RUC_GERENTE": "STRING",
+            "DOMINIO_FISCAL_GERENTE": "STRING",
+            "ESTADO_CONTRIBUYENTE": "STRING",
+            "CONDICION_CONTRIBUYENTE": "STRING",
+            "DEUDA_PUBLICA_SUNAT": "STRING",
+            "OMISIONES_TRIBUTARIAS_SUNAT": "STRING",
+            
+            "score_valor_gerente": "STRING",
+            "nivel_riesgo_gerente": "STRING",
+            "PERSONAS_RIESGO_NUM": "STRING",
+            "RIESGOS_ESTADO_CALIFICACION": "STRING",
+            "RIESGOS_COMPORTAMIENTO_PAGO": "STRING",
+            "deuda_total_monto": "STRING",
+            "deuda_total_credito": "STRING",
+            "deuda_total_banco": "STRING",
+            "DESCRIPCION_OTRAS_DEUDAS": "STRING",
+            "comportamiento_13m": "STRING",
+            
+            "reporte_comision_represion_denuncias": "STRING",
+            "lista_reporte_comision_represion": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "denunciantes": "STRING",
+                "estatus": "STRING"
+              }
+            ],
+            "reporte_sala_concursal_denuncias": "STRING",
+            "lista_reporte_sala_concursal": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "denunciantes": "STRING",
+                "estatus": "STRING"
+              }
+            ],
+            "reporte_comision_denuncias": "STRING",
+            "lista_reporte_comision": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "denunciantes": "STRING",
+                "estatus": "STRING"
+              }
+            ],
+            
+            "REPORTE_PROTECCION_FECHAS": "STRING",
+            "lista_reporte_proteccion": [
+              {
+                "razon_social": "STRING",
+                "cantidad": "STRING"
+              }
+            ],
+            
+            "REPORTE_JUZGADOS_CIVILES_CANTIDAD": "STRING",
+            "lista_reporte_juzgado_civil": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "demandantes": "STRING",
+                "status": "STRING"
+              }
+            ],
+            "REPORTE_JUZGADOS_FAMILIARES_CANTIDAD": "STRING",
+            "lista_reporte_juzgado_familiar": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "demandantes": "STRING",
+                "status": "STRING"
+              }
+            ],
+            "REPORTE_JUZGADOS_LABORAL_CANTIDAD": "STRING",
+            "lista_reporte_juzgado_laboral": [
+              {
+                "expediente": "STRING",
+                "organo": "STRING",
+                "demandantes": "STRING",
+                "status": "STRING"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TIPO": "NATURAL",
+        "NOMBRE": "STRING",
+        "documento": "STRING",
+        "documento_numero": "STRING",
+        
+        "GERENTE_GENERAL_NOMBRE": "STRING",
+        "GERENTE_GENERAL_NUM_DOC": "STRING",
+        "RUC_GERENTE": "STRING",
+        "DOMINIO_FISCAL_GERENTE": "STRING",
+        "ESTADO_CONTRIBUYENTE": "STRING",
+        "CONDICION_CONTRIBUYENTE": "STRING",
+        "DEUDA_PUBLICA_SUNAT": "STRING",
+        "OMISIONES_TRIBUTARIAS_SUNAT": "STRING",
+        
+        "score_valor_gerente": "STRING",
+        "nivel_riesgo_gerente": "STRING",
+        "PERSONAS_RIESGO_NUM": "STRING",
+        "RIESGOS_ESTADO_CALIFICACION": "STRING",
+        "RIESGOS_COMPORTAMIENTO_PAGO": "STRING",
+        "deuda_total_monto": "STRING",
+        "deuda_total_credito": "STRING",
+        "deuda_total_banco": "STRING",
+        "DESCRIPCION_OTRAS_DEUDAS": "STRING",
+        "comportamiento_13m": "STRING",
+        
+        "reporte_comision_represion_denuncias": "STRING",
+        "lista_reporte_comision_represion": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        "reporte_sala_concursal_denuncias": "STRING",
+        "lista_reporte_sala_concursal": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        "reporte_comision_denuncias": "STRING",
+        "lista_reporte_comision": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "denunciantes": "STRING",
+            "estatus": "STRING"
+          }
+        ],
+        
+        "REPORTE_PROTECCION_FECHAS": "STRING",
+        "lista_reporte_proteccion": [
+          {
+            "razon_social": "STRING",
+            "cantidad": "STRING"
+          }
+        ],
+        
+        "REPORTE_JUZGADOS_CIVILES_CANTIDAD": "STRING",
+        "lista_reporte_juzgado_civil": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "demandantes": "STRING",
+            "status": "STRING"
+          }
+        ],
+        "REPORTE_JUZGADOS_FAMILIARES_CANTIDAD": "STRING",
+        "lista_reporte_juzgado_familiar": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "demandantes": "STRING",
+            "status": "STRING"
+          }
+        ],
+        "REPORTE_JUZGADOS_LABORAL_CANTIDAD": "STRING",
+        "lista_reporte_juzgado_laboral": [
+          {
+            "expediente": "STRING",
+            "organo": "STRING",
+            "demandantes": "STRING",
+            "status": "STRING"
+          }
+        ]
+      }
+    ]
+  }
+}
