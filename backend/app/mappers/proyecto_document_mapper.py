@@ -953,10 +953,8 @@ class ProyectoDocumentMapper:
 
         context["gerente_general"] = gerente_context
 
-        context["score_valor"] = _safe_str(sujeto_empresa.get("scoreValor"))
-        context["SCORE_VALOR"] = context["score_valor"]
-        context["nivel_riesgo"] = _safe_str(sujeto_empresa.get("nivelRiesgo"))
-        context["NIVEL_RIESGO"] = context["nivel_riesgo"]
+        context["SCORE_VALOR"] = _safe_str(sujeto_empresa.get("scoreValor"))
+        context["NIVEL_RIESGO"] = _safe_str(sujeto_empresa.get("nivelRiesgo"))
         context["EMPRESAS_RIESGO_NUM"] = _safe_str(sujeto_empresa.get("cantidadRiesgosNum"))
         context["RIESGOS_ESTADO_CALIFICACION"] = _safe_str(sujeto_empresa.get("riesgosEstadoCalificacion"))
         context["RIESGOS_COMPORTAMIENTO_PAGO"] = _safe_str(sujeto_empresa.get("riesgosComportamientoPago"))

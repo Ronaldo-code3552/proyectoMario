@@ -9,6 +9,9 @@ type Props = {
   onBack: () => void
   onNext: () => void
   loading?: boolean
+  disableNext?: boolean
+  hideBack?: boolean
+  nextLabel?: string
 }
 
 export default function AccionistasStep({
@@ -16,7 +19,10 @@ export default function AccionistasStep({
   onChange,
   onBack,
   onNext,
-  loading
+  loading,
+  disableNext = false,
+  hideBack = false,
+  nextLabel = 'Guardar accionistas y seguir'
 }: Props) {
   const updateAccionistas = (next: AccionistaDraft[]) => onChange(next)
 
@@ -497,11 +503,13 @@ export default function AccionistasStep({
       ))}
 
       <div className="actions">
-        <button type="button" className="secondary" onClick={onBack}>
-          Atrás
-        </button>
-        <button type="button" onClick={onNext} disabled={loading}>
-          {loading ? 'Guardando...' : 'Guardar accionistas y seguir'}
+        {!hideBack ? (
+          <button type="button" className="secondary" onClick={onBack}>
+            Atrás
+          </button>
+        ) : null}
+        <button type="button" onClick={onNext} disabled={loading || disableNext}>
+          {loading ? 'Guardando...' : nextLabel}
         </button>
       </div>
     </div>

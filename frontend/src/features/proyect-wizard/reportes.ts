@@ -51,14 +51,18 @@ export type EmpresaReportesState = {
   reportesMinisterioVivienda: ReporteMinisterioViviendaItem[]
 }
 
-export const createEmptySunatItem = (ordenLista = 1): SunatItem => ({
+export const createEmptySunatItem = (
+  ordenLista = 1,
+  tipo: 'deuda_sunat' | 'omision_sunat' = 'deuda_sunat'
+): SunatItem => ({
   monto: '',
   periodo: '',
   fechaTexto: '',
   entidad: 'SUNAT',
   ordenLista,
   payloadItem: {
-    fuente: 'frontend'
+    fuente: 'frontend',
+    tipo
   }
 })
 

@@ -16,18 +16,28 @@ from app.schemas.empresa_reportes import (
     EmpresaReporteMinisterioViviendaCreateRequest,
     EmpresaReporteMutationResponse,
 )
-from app.services.empresa_service import EmpresaService
-from app.services.relacion_service import RelacionService
-from app.services.empresa_reportes_service import EmpresaReportesService
-
 from app.schemas.accionista import (
     AccionistaCreateRequest,
     AccionistaInternoCreateRequest,
     AccionistaMutationResponse,
 )
+
+from app.services.empresa_service import EmpresaService
+from app.services.relacion_service import RelacionService
+from app.services.empresa_reportes_service import EmpresaReportesService
 from app.services.accionista_service import AccionistaService
 
+
 router = APIRouter(prefix="/empresas", tags=["Empresa"])
+
+
+def _ensure_ok(result, status_code: int, default_message: str):
+    if not result or not result.get("ok", False):
+        raise HTTPException(
+            status_code=status_code,
+            detail=(result or {}).get("message", default_message),
+        )
+    return result
 
 
 @router.get(
@@ -48,8 +58,8 @@ def get_empresas(
             search_term=search_term,
         )
         return EmpresaJsonResponse(ok=True, data=result)
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al obtener empresas: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al obtener empresas.")
 
 
 @router.get(
@@ -68,8 +78,8 @@ def get_empresa_by_id(empresa_id: int):
         return EmpresaJsonResponse(ok=True, data=result)
     except HTTPException:
         raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al obtener empresa: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al obtener empresa.")
 
 
 @router.post(
@@ -153,12 +163,7 @@ def create_empresa(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaService.create(payload)
-
-        if not result or not result.get("ok", False):
-            raise HTTPException(
-                status_code=400,
-                detail=(result or {}).get("message", "No se pudo crear la empresa.")
-            )
+        result = _ensure_ok(result, 400, "No se pudo crear la empresa.")
 
         return EmpresaMutationResponse(
             ok=result["ok"],
@@ -167,15 +172,18 @@ def create_empresa(
         )
     except HTTPException:
         raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al crear empresa: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al crear empresa.")
 
 
 @router.put(
     "/{empresa_id}",
     response_model=EmpresaMutationResponse,
     summary="Actualizar empresa",
-    description="Actualiza una empresa llamando a fn_empresa_update_json."
+    description="Actualiza una empresa llamando a fn_empresa_update_json.",
+    responses={
+        400: {"description": "No se pudo actualizar la empresa."}
+    }
 )
 def update_empresa(
     empresa_id: int,
@@ -203,12 +211,7 @@ def update_empresa(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaService.update(empresa_id, payload)
-
-        if not result or not result.get("ok", False):
-            raise HTTPException(
-                status_code=400,
-                detail=(result or {}).get("message", "No se pudo actualizar la empresa.")
-            )
+        result = _ensure_ok(result, 400, "No se pudo actualizar la empresa.")
 
         return EmpresaMutationResponse(
             ok=result["ok"],
@@ -217,8 +220,8 @@ def update_empresa(
         )
     except HTTPException:
         raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al actualizar empresa: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al actualizar empresa.")
 
 
 @router.delete(
@@ -233,22 +236,17 @@ def delete_empresa(
 ):
     try:
         result = EmpresaService.delete(empresa_id, force)
-
-        if not result or not result.get("ok", False):
-            raise HTTPException(
-                status_code=400,
-                detail=(result or {}).get("message", "No se pudo eliminar la empresa.")
-            )
+        result = _ensure_ok(result, 400, "No se pudo eliminar la empresa.")
 
         return EmpresaMutationResponse(
             ok=result["ok"],
             message=result["message"],
-            data=result
+            data=result.get("data")
         )
     except HTTPException:
         raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al eliminar empresa: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al eliminar empresa.")
 
 
 @router.post(
@@ -280,12 +278,7 @@ def asignar_gerente_general(
             proyecto_id=request.proyectoId,
             observacion=request.observacion,
         )
-
-        if not result or not result.get("ok", False):
-            raise HTTPException(
-                status_code=409,
-                detail=(result or {}).get("message", "No se pudo asignar el gerente general.")
-            )
+        result = _ensure_ok(result, 409, "No se pudo asignar el gerente general.")
 
         return RelacionMutationResponse(
             ok=result["ok"],
@@ -294,8 +287,8 @@ def asignar_gerente_general(
         )
     except HTTPException:
         raise
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al asignar gerente general: {str(ex)}")
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al asignar gerente general.")
 
 
 @router.post(
@@ -310,13 +303,17 @@ def create_sunat_deuda(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaReportesService.create_sunat_deuda(sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar la deuda SUNAT.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar deuda SUNAT: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar deuda SUNAT.")
 
 
 @router.post(
@@ -331,34 +328,42 @@ def create_sunat_omision(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaReportesService.create_sunat_omision(sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar la omisión SUNAT.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar omisión SUNAT: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar omisión SUNAT.")
 
 
 @router.post(
-    "/{sujeto_id}/representantes-legales",
+    "/{empresa_sujeto_id}/representantes-legales",
     response_model=EmpresaReporteMutationResponse,
     summary="Registrar representante legal de empresa"
 )
 def create_representante_legal(
-    sujeto_id: int,
+    empresa_sujeto_id: int,
     request: RepresentanteLegalCreateRequest = Body(...)
 ):
     try:
         payload = request.model_dump(exclude_none=True)
-        result = EmpresaReportesService.create_representante_legal(sujeto_id, payload)
+        result = EmpresaReportesService.create_representante_legal(empresa_sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar el representante legal.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar representante legal: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar representante legal.")
 
 
 @router.post(
@@ -373,13 +378,17 @@ def create_reporte_expediente(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaReportesService.create_reporte_expediente(sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar el reporte expediente.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar reporte expediente: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar reporte expediente.")
 
 
 @router.post(
@@ -394,13 +403,17 @@ def create_reporte_lista_simple(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaReportesService.create_reporte_lista_simple(sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar el reporte lista simple.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar reporte lista simple: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar reporte lista simple.")
 
 
 @router.post(
@@ -415,14 +428,18 @@ def create_reporte_ministerio_vivienda(
     try:
         payload = request.model_dump(exclude_none=True)
         result = EmpresaReportesService.create_reporte_ministerio_vivienda(sujeto_id, payload)
+        result = _ensure_ok(result, 400, "No se pudo registrar el reporte ministerio vivienda.")
+
         return EmpresaReporteMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar reporte ministerio vivienda: {str(ex)}")
-    
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar reporte ministerio vivienda.")
+
 
 @router.post(
     "/{empresa_sujeto_id}/accionistas",
@@ -442,13 +459,17 @@ def create_accionista(
             observacion=request.observacion,
             payload_contexto=request.payloadContexto,
         )
+        result = _ensure_ok(result, 400, "No se pudo registrar el accionista.")
+
         return AccionistaMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar accionista: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar accionista.")
 
 
 @router.post(
@@ -469,10 +490,14 @@ def create_accionista_interno(
             observacion=request.observacion,
             payload_contexto=request.payloadContexto,
         )
+        result = _ensure_ok(result, 400, "No se pudo registrar el accionista interno.")
+
         return AccionistaMutationResponse(
             ok=result["ok"],
             message=result["message"],
             data=result.get("data"),
         )
-    except Exception as ex:
-        raise HTTPException(status_code=500, detail=f"Error al registrar accionista interno: {str(ex)}")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Error al registrar accionista interno.")

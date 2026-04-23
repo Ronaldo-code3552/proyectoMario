@@ -87,7 +87,10 @@ export const personaSchema = z.object({
 
 export const proyectoSchema = z.object({
   proyecto: z.object({
-    empresaPrincipalSujetoId: z.number(),
+    empresaPrincipalSujetoId: z
+      .number()
+      .int()
+      .positive('Selecciona una empresa principal válida para el proyecto'),
     fecha1: z.string().min(1, 'La fecha es obligatoria'),
     textoProyectosNatural: z.string().min(1, 'El texto del proyecto es obligatorio'),
     cargaLoteId: z.number().optional(),

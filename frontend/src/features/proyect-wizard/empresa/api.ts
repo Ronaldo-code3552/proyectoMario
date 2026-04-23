@@ -1,11 +1,43 @@
-import { api } from '../../lib/api'
-import type { EmpresaReportesState,PersonaReportesState } from './reportes'
-import type { AccionistaDraft } from './accionistas'
+import { api } from '../../../lib/api'
+import type { AccionistaDraft } from '../accionistas'
+import type { EmpresaReportesState } from '../reportes'
+import type { EmpresaFormValues } from '../schemas'
+import { createPersona, savePersonaReportes } from '../persona/api'
 import type {
-  EmpresaFormValues,
-  PersonaFormValues,
-  ProyectoFormValues
-} from './schemas'
+  EmpresaDetail,
+  EmpresaListItem,
+  EmpresaListResponse
+} from './types'
+
+export type { EmpresaDetail, EmpresaListItem, EmpresaListResponse } from './types'
+
+const normalizeEmpresaListResponse = (payload: any): EmpresaListResponse => ({
+  data: Array.isArray(payload?.data) ? payload.data : [],
+  totalRecords: Number(payload?.totalRecords ?? 0),
+  pageNumber: Number(payload?.pageNumber ?? 1),
+  pageSize: Number(payload?.pageSize ?? 20)
+})
+
+export const getEmpresas = async (params: {
+  pageNumber?: number
+  pageSize?: number
+  searchTerm?: string
+}) => {
+  const { data } = await api.get('/empresas', {
+    params: {
+      page_number: params.pageNumber ?? 1,
+      page_size: params.pageSize ?? 10,
+      search_term: params.searchTerm || undefined
+    }
+  })
+
+  return normalizeEmpresaListResponse(data?.data)
+}
+
+export const getEmpresaById = async (empresaId: number) => {
+  const { data } = await api.get(`/empresas/${empresaId}`)
+  return data?.data as EmpresaDetail
+}
 
 export const createEmpresa = async (payload: EmpresaFormValues) => {
   const { data } = await api.post('/empresas', payload)
@@ -17,23 +49,24 @@ export const createEmpresa = async (payload: EmpresaFormValues) => {
   }
 }
 
-export const createPersona = async (payload: PersonaFormValues) => {
-  const { data } = await api.post('/personas', payload)
+export const updateEmpresa = async (empresaId: number, payload: EmpresaFormValues) => {
+  const { data } = await api.put(`/empresas/${empresaId}`, payload)
 
   return {
     raw: data,
-    personaId: data?.data?.id,
-    personaSujetoId: data?.data?.sujeto?.id
+    empresaId: data?.data?.id,
+    empresaSujetoId: data?.data?.sujeto?.id
   }
 }
 
-export const createProyecto = async (payload: ProyectoFormValues) => {
-  const { data } = await api.post('/proyectos', payload)
+export const deleteEmpresa = async (empresaId: number, force = false) => {
+  const { data } = await api.delete(`/empresas/${empresaId}`, {
+    params: {
+      force
+    }
+  })
 
-  return {
-    raw: data,
-    proyectoId: data?.data?.id ?? data?.data?.proyecto?.id
-  }
+  return data
 }
 
 export const asignarGerenteGeneral = async (payload: {
@@ -54,8 +87,17 @@ export const asignarGerenteGeneral = async (payload: {
   return data
 }
 
-export const generateProyectoDocx = async (proyectoId: number) => {
-  const { data } = await api.post(`/documents/proyectos/${proyectoId}/docx`)
+export const afiliarAccionistaExistente = async (
+  empresaSujetoId: number,
+  payload: {
+    accionistaSujetoId: number
+    proyectoId?: number
+    ordenLista?: number
+    observacion?: string
+    payloadContexto?: Record<string, unknown>
+  }
+) => {
+  const { data } = await api.post(`/empresas/${empresaSujetoId}/accionistas`, payload)
   return data
 }
 
@@ -119,41 +161,6 @@ export const saveEmpresaReportes = async (
 
   return { ok: true }
 }
-
-const postPersonaReporteExpediente = async (sujetoId: number, payload: any) => {
-  const { data } = await api.post(`/personas/${sujetoId}/reportes-expediente`, payload)
-  return data
-}
-
-const postPersonaReporteListaSimple = async (sujetoId: number, payload: any) => {
-  const { data } = await api.post(`/personas/${sujetoId}/reportes-lista-simple`, payload)
-  return data
-}
-
-const postPersonaReporteMinisterioVivienda = async (sujetoId: number, payload: any) => {
-  const { data } = await api.post(`/personas/${sujetoId}/reportes-ministerio-vivienda`, payload)
-  return data
-}
-
-export const savePersonaReportes = async (
-  sujetoId: number,
-  reportes: PersonaReportesState
-) => {
-  for (const item of reportes.reportesExpediente) {
-    await postPersonaReporteExpediente(sujetoId, item)
-  }
-
-  for (const item of reportes.reportesListaSimple) {
-    await postPersonaReporteListaSimple(sujetoId, item)
-  }
-
-  for (const item of reportes.reportesMinisterioVivienda) {
-    await postPersonaReporteMinisterioVivienda(sujetoId, item)
-  }
-
-  return { ok: true }
-}
-
 
 const postAccionista = async (empresaSujetoId: number, payload: any) => {
   const { data } = await api.post(`/empresas/${empresaSujetoId}/accionistas`, payload)

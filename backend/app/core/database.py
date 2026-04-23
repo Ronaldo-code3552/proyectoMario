@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+
 import psycopg
 from psycopg.rows import dict_row
 
@@ -6,12 +7,13 @@ from app.core.config import settings
 
 
 def build_conn_info() -> str:
+    kwargs = settings.database_kwargs
     return (
-        f"host={settings.PGHOST} "
-        f"port={settings.PGPORT} "
-        f"dbname={settings.PGDATABASE} "
-        f"user={settings.PGUSER} "
-        f"password={settings.PGPASSWORD}"
+        f"host={kwargs['host']} "
+        f"port={kwargs['port']} "
+        f"dbname={kwargs['dbname']} "
+        f"user={kwargs['user']} "
+        f"password={kwargs['password']}"
     )
 
 
@@ -29,7 +31,8 @@ def get_connection():
 
 
 def test_database_connection() -> dict:
-    with get_connection() as conn:
+    conn = psycopg.connect(build_conn_info(), row_factory=dict_row)
+    try:
         with conn.cursor() as cur:
             cur.execute(
                 """
@@ -46,3 +49,5 @@ def test_database_connection() -> dict:
                 "user": row["user_name"],
                 "server_time": str(row["server_time"]),
             }
+    finally:
+        conn.close()
