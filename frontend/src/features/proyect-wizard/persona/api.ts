@@ -4,7 +4,6 @@ import type { PersonaFormValues } from '../schemas'
 import type {
   PersonaCreateResult,
   PersonaDetail,
-  PersonaListItem,
   PersonaListResponse
 } from './types'
 

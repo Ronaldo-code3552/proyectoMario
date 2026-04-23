@@ -2,10 +2,8 @@ import type { ReactNode } from 'react'
 import type { UseFormReturn } from 'react-hook-form'
 import type { ProyectoFormValues } from '../../schemas'
 import type { TabbedFormModalTab } from '../../shared/components/TabbedFormModalShell'
-import {
-  ProyectoFormSection,
-  type ProyectoEmpresaPreview
-} from '../formSections'
+import type { ProyectoEmpresaPreview } from '../components/ProyectoEmpresaSelector'
+import { ProyectoFormSection } from '../formSections'
 
 export type ProyectoFormTabKey = 'general'
 

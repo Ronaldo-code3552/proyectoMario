@@ -5,7 +5,6 @@ import type { EmpresaFormValues } from '../schemas'
 import { createPersona, savePersonaReportes } from '../persona/api'
 import type {
   EmpresaDetail,
-  EmpresaListItem,
   EmpresaListResponse
 } from './types'
 

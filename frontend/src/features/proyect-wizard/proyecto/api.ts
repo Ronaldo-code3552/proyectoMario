@@ -2,7 +2,6 @@ import { api } from '../../../lib/api'
 import type { ProyectoFormValues } from '../schemas'
 import type {
   ProyectoDetail,
-  ProyectoListItem,
   ProyectoListResponse
 } from './types'
 

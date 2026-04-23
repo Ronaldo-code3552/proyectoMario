@@ -36,6 +36,10 @@ export default function ProyectoPage({ workspace, onGoEmpresa }: Props) {
   const selectedProyecto = currentProyecto ?? controller.selectedProyecto
   const isDetailView = controller.panelMode === 'detail'
   const isFormView = controller.panelMode === 'create' || controller.panelMode === 'edit'
+  const formMode =
+    controller.panelMode === 'create' || controller.panelMode === 'edit'
+      ? controller.panelMode
+      : null
   const initialEmpresaPreview: ProyectoEmpresaPreview | undefined = currentProyecto
     ? {
         sujetoId:
@@ -64,9 +68,9 @@ export default function ProyectoPage({ workspace, onGoEmpresa }: Props) {
 
   return (
     <div className="page-grid">
-      {isFormView ? (
+      {isFormView && formMode ? (
         <ProyectoFormModal
-          mode={controller.panelMode}
+          mode={formMode}
           form={proyectoForm}
           initialEmpresaPreview={initialEmpresaPreview}
           onClose={handleCloseForm}

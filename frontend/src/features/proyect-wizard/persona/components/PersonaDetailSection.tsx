@@ -9,11 +9,12 @@ import {
 import type {
   PersonaDeudaReadModel,
   PersonaDetail,
+  PersonaProyectoRelacionReadModel,
   PersonaRelacionEmpresaReadModel,
   PersonaReporteExpedienteReadModel,
   PersonaReporteListaSimpleReadModel,
   PersonaReporteMinisterioViviendaReadModel
-} from '../api'
+} from '../types'
 
 type Props = {
   selectedPersona: PersonaDetail | null
@@ -222,7 +223,8 @@ const renderRelacionEmpresa = (
       {relation.proyectos?.length ? (
         <div className="detail-subentity-list">
           <span className="detail-kicker">Proyectos vinculados</span>
-          {relation.proyectos.map((proyecto, proyectoIndex) => (
+          {relation.proyectos.map(
+            (proyecto: PersonaProyectoRelacionReadModel, proyectoIndex: number) => (
             <div key={`proyecto-${proyecto.id ?? proyectoIndex}`} className="detail-subentity-card">
               <div className="detail-record-title">
                 <strong>{proyecto.textoProyectosNatural ?? `Proyecto ${proyecto.id ?? proyectoIndex + 1}`}</strong>
@@ -234,7 +236,8 @@ const renderRelacionEmpresa = (
                 </span>
               </div>
             </div>
-          ))}
+            )
+          )}
         </div>
       ) : null}
 
